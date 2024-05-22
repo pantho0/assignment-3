@@ -19,4 +19,4 @@ const productSchema = new Schema<TProduct>({
   },
 });
 
-export const ProductModel = model<TProduct>('Student', productSchema);
+export const ProductModel = model<TProduct>('Product', productSchema);
