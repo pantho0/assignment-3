@@ -12,7 +12,7 @@ const getAllOrdersFromDB = async () => {
 };
 
 const getOrderByUserFromDB = async (email: string) => {
-  const result = await OrderModel.findOne({ email: email });
+  const result = await OrderModel.find({ email: email });
   return result;
 };
 

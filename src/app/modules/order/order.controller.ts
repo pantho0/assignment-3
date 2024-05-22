@@ -11,7 +11,10 @@ const createOrder = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: 'Internal Server Error',
+    });
   }
 };
 
@@ -34,7 +37,10 @@ const getAllOrder = async (req: Request, res: Response) => {
           });
         }
       } catch (error) {
-        console.log(error);
+        res.status(400).json({
+          success: false,
+          message: 'Internal Server Error',
+        });
       }
     } else {
       const result = await OrderService.getAllOrdersFromDB();
@@ -45,7 +51,10 @@ const getAllOrder = async (req: Request, res: Response) => {
       });
     }
   } catch (error) {
-    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: 'Internal Server Error',
+    });
   }
 };
 

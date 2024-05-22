@@ -48,7 +48,10 @@ const getAllProducts = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: 'Internal Server Error',
+    });
   }
 };
 
@@ -62,7 +65,10 @@ const getSingleProduct = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: 'Internal Server Error',
+    });
   }
 };
 const updateProduct = async (req: Request, res: Response) => {
@@ -79,7 +85,10 @@ const updateProduct = async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: 'Internal Server Error',
+    });
   }
 };
 
@@ -94,7 +103,10 @@ const deleteProduct = async (req: Request, res: Response) => {
       data: null,
     });
   } catch (error) {
-    console.log(error);
+    res.status(400).json({
+      success: false,
+      message: 'Internal Server Error',
+    });
   }
 };
 
