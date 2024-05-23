@@ -81,9 +81,10 @@ const updateProduct = async (req: Request, res: Response) => {
   try {
     const { productId } = req.params;
     const product = req.body;
+    const zodParsedData = productValidationSchema.parse(product);
     const result = await productServices.updateProductIntoDB(
       productId,
-      product,
+      zodParsedData,
     );
     console.log(result);
     const updatedDoc = await productServices.getSingleProductFromDB(productId);
@@ -96,6 +97,7 @@ const updateProduct = async (req: Request, res: Response) => {
     return res.status(400).json({
       success: false,
       message: 'Internal Server Error',
+      error: error,
     });
   }
 };
